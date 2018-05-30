@@ -9,7 +9,7 @@
 #include <vector>
 
 /**
- * CBaseChainParams defines the base parameters (shared between emit-cli and northernd)
+ * CBaseChainParams defines the base parameters (shared between emit-cli and emitd)
  * of a given instance of the EMIT system.
  */
 class CBaseChainParams

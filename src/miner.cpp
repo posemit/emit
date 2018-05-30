@@ -32,7 +32,7 @@ using namespace std;
 
 //////////////////////////////////////////////////////////////////////////////
 //
-// NorthernMiner
+// emitMiner
 //
 
 //
@@ -430,7 +430,7 @@ bool ProcessBlockFound(CBlock* pblock, CWallet& wallet, CReserveKey& reservekey)
     {
         LOCK(cs_main);
         if (pblock->hashPrevBlock != chainActive.Tip()->GetBlockHash())
-            return error("NorthernMiner : generated block is stale");
+            return error("emitMiner : generated block is stale");
     }
 
     // Remove key from key pool
@@ -445,7 +445,7 @@ bool ProcessBlockFound(CBlock* pblock, CWallet& wallet, CReserveKey& reservekey)
     // Process this block the same as if we had received it from another node
     CValidationState state;
     if (!ProcessNewBlock(state, NULL, pblock))
-        return error("NorthernMiner : ProcessNewBlock, block not accepted");
+        return error("emitMiner : ProcessNewBlock, block not accepted");
 
     for (CNode* node : vNodes) {
         node->PushInventory(CInv(MSG_BLOCK, pblock->GetHash()));
@@ -460,7 +460,7 @@ bool fGenerateBitcoins = false;
 
 void BitcoinMiner(CWallet* pwallet, bool fProofOfStake)
 {
-    LogPrintf("NorthernMiner started\n");
+    LogPrintf("emitMiner started\n");
     SetThreadPriority(THREAD_PRIORITY_LOWEST);
     RenameThread("emit-miner");
 
@@ -533,7 +533,7 @@ void BitcoinMiner(CWallet* pwallet, bool fProofOfStake)
             continue;
         }
 
-        LogPrintf("Running NorthernMiner with %u transactions in block (%u bytes)\n", pblock->vtx.size(),
+        LogPrintf("Running emitMiner with %u transactions in block (%u bytes)\n", pblock->vtx.size(),
             ::GetSerializeSize(*pblock, SER_NETWORK, PROTOCOL_VERSION));
 
         //

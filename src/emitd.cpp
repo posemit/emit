@@ -78,7 +78,7 @@ bool AppInit(int argc, char* argv[])
             strUsage += LicenseInfo();
         } else {
             strUsage += "\n" + _("Usage:") + "\n" +
-                        "  northernd [options]                     " + _("Start EMIT Core Daemon") + "\n";
+                        "  emitd [options]                     " + _("Start EMIT Core Daemon") + "\n";
 
             strUsage += "\n" + HelpMessage(HMM_BITCOIND);
         }
@@ -118,7 +118,7 @@ bool AppInit(int argc, char* argv[])
                 fCommandLine = true;
 
         if (fCommandLine) {
-            fprintf(stderr, "Error: There is no RPC client functionality in northernd anymore. Use the emit-cli utility instead.\n");
+            fprintf(stderr, "Error: There is no RPC client functionality in emitd anymore. Use the emit-cli utility instead.\n");
             exit(1);
         }
 #ifndef WIN32
