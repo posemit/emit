@@ -1,0 +1,11 @@
+[Protocol]
+exec=emit-qt '%u'
+protocol=emit
+input=none
+output=none
+helper=true
+listing=
+reading=false
+writing=false
+makedir=false
+deleting=false

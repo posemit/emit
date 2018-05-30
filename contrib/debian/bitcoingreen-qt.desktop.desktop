@@ -1,0 +1,11 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=EMIT
+Comment=EMIT P2P Cryptocurrency
+Exec=emit-qt %u
+Terminal=false
+Type=Application
+Icon=northern128
+MimeType=x-scheme-handler/emit;
+Categories=Office;Finance;
+Name[en_US]=emit-qt.desktop
